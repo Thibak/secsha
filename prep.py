@@ -1,5 +1,5 @@
 
-kode_matrix=[																																	
+code_matrix=[																																	
 [	1	,	17	,	33	,	49	,	65	,	81	,	97	,	113	,	129	,	145	,	161	,	177	,	193	,	209	,	225	,	241	],	
 [	2	,	18	,	34	,	50	,	66	,	82	,	98	,	114	,	130	,	146	,	162	,	178	,	194	,	210	,	226	,	242	],	
 [	3	,	19	,	35	,	51	,	67	,	83	,	99	,	115	,	131	,	147	,	163	,	179	,	195	,	211	,	227	,	243	],	
@@ -260,8 +260,28 @@ kode_matrix=[
 
 #make_decode_matrix
 
-decode_matrix = []
-for decode_matrix in range(code_matrix.len)
 
-for i in in range() code_matrix[j]
-  
+decode_matrix = [['.' for i in range(256)] for j in range(256)]
+a = 0
+b = 0
+c = 0
+
+
+for row in range(len(code_matrix)):
+#for row in range(17):
+    for i in code_matrix[row]:
+        for j in code_matrix[row]:
+            if i != j:
+                if decode_matrix[i-1][j-1] == '.':
+                    decode_matrix[i-1][j-1] = row
+                    b = b+1
+                else:
+                    print i, j, row, decode_matrix[i-1][j-1]
+                    a=a+1
+
+for i in range(30):
+    for j in range(50):
+        print decode_matrix[j][i],
+    print ''
+
+print a, b
